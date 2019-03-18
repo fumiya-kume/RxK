@@ -37,17 +37,3 @@ class Observable<T> {
 
 }
 
-internal data class Observer<T>(
-    val onNext: (T) -> Unit,
-    val onError: (e: Throwable) -> Unit,
-    val onCompleted: (Unit) -> Unit
-)
-
-class Disposable<T>(
-    val observable: Observable<T>,
-    val code: Int = -1
-) {
-    fun dispose() {
-        observable.dispose(this)
-    }
-}
